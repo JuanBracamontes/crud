@@ -1,0 +1,102 @@
+<div class="modal-content">
+  <div class="row">
+    <div class="col-10" align="center">
+      <h3>Actualiza tus datos</h3>
+    </div>
+  </div>
+
+  <div class="row row-width" style="margin-bottom: 30px;">
+    <div class="col-12">
+      <!--nombre-->
+      <div class="row mt-30">
+        <div class="col-12">
+          <span>Nombre Completo:</span>
+          <input class="form-control" type="text" placeholder="Nombre" [(ngModel)]="dataRegister.nombre">
+        </div>
+      </div>
+
+      <!--direccion-->
+      <div class="row  mt-30">
+        <div class="col-12">
+          <span>Direccion:</span>
+          <input class="form-control" type="text" placeholder="direccion" [(ngModel)]="dataRegister.direccion">
+        </div>
+      </div>
+
+      <!--Usuario-->
+      <div class="row  mt-30">
+        <div class="col-12">
+          <span>Usuario:</span>
+          <input class="form-control" type="text" placeholder="Usuario" [(ngModel)]="dataRegister.username">
+        </div>
+      </div>
+
+      <!--Contraseña-->
+      <div class="row mt-30">
+        <div class="col-12">
+          <span>Contrasñea:</span>
+          <input class="form-control" type="text" placeholder="Contraseña" [(ngModel)]="dataRegister.password">
+        </div>
+      </div>
+
+      <!--telefono-->
+      <div class="row mt-30">
+        <div class="col-12">
+          <span>Telefono:</span>
+          <input class="form-control" type="text" placeholder="Telefono" [(ngModel)]="dataRegister.telefono"
+                 (keypress)="_validationService.restrictNumeric($event)">
+        </div>
+      </div>
+
+      <!--Codigo postal-->
+      <div class="row mt-30">
+        <div class="col-12">
+          <span>Codigo Postal:</span>
+          <input class="form-control" type="text" placeholder="CP" [(ngModel)]="dataRegister.cp"
+                 (keypress)="_validationService.restrictNumeric($event)"
+          >
+        </div>
+      </div>
+
+      <!--tipoUsuario-->
+      <div class="row mt-30">
+        <div class="col-12">
+          <span>Tipo de usuario:</span>
+          <select name="Estados" class="form-control" #typeUser [(ngModel)]="dataRegister.tipo">
+            <option value="" selected>Tipo de usuario</option>
+            <option value="{{tipo}}" *ngFor="let tipo of tipoUsuario">{{tipo}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mt-30">
+        <!--Estados-->
+        <div class="col-6">
+          <span>Estado:</span>
+          <select name="Estados" class="form-control" (click)="getCiudades(edo.value)" [(ngModel)]="dataRegister.estado"
+                  #edo>
+            <option value="" selected>Seleccione un estado</option>
+            <option value="{{estado}}" *ngFor="let estado of estados">{{estado}}</option>
+          </select>
+        </div>
+
+        <!--ciudades-->
+        <div class="col-6">
+          <span>Ciudades:</span>
+          <select name="ciudades" class="form-control" #city [(ngModel)]="dataRegister.ciudad">
+            <option value="" selected>Seleccione una ciudad</option>
+            <option value="{{ciudad}}" *ngFor="let ciudad of ciudades">{{ciudad}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row m3-30" style="margin-bottom: 30px;">
+    <div class="col-12" align="center">
+      <button class="btn btn-success button-width"
+              (click)="validateFields(dataRegister,edo.value,city.value,typeUser.value)">Guardar
+      </button>
+    </div>
+  </div>
+</div>

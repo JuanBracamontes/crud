@@ -1,0 +1,22 @@
+
+.view-users-container{
+  width: 600px;
+  height: 500px;
+}
+
+.btn-width{
+  width:300px;
+}
+
+.delete-icon-style{
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 30px;
+  color: red;
+}
+
+.edit-icon-style{
+  cursor: pointer;
+  font-size: 30px;
+  color: cadetblue;
+}

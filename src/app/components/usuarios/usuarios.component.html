@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row mt-40">
+    <div class="col-12" align="center">
+      <h1>Usuarios</h1>
+    </div>
+  </div>
+
+  <div class="row mt-30">
+    <div class="col-12" align="center">
+      <button class="btn btn-info btn-width" (click)="goHome()">Principal</button>
+    </div>
+  </div>
+
+
+
+  <table class="table table-striped mt-30">
+    <thead class="thead-dark bg-dark">
+    <tr>
+      <th class="whiteFont" scope="col">Nombre</th>
+      <th class="whiteFont" scope="col">Telefono</th>
+      <th class="whiteFont" scope="col">C.P.</th>
+      <th class="whiteFont" scope="col">Estado</th>
+      <th class="whiteFont" scope="col">Ciudad</th>
+      <th class="whiteFont" scope="col">Opciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.telefono}}</td>
+      <td>{{usuario.cp}}</td>
+      <td>{{usuario.estado}}</td>
+      <td>{{usuario.ciudad}}</td>
+      <td><i class="zmdi zmdi-edit edit-icon-style" (click)="updateUser(usuario.usuario)" ></i>
+        <i class="zmdi zmdi-close-circle delete-icon-style" (click)="goToDeleteUser(usuario.usuario)"></i>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
